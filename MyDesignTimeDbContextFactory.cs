@@ -20,7 +20,7 @@ namespace PomeloPrimaryKeyBug
                     options =>
                     {
                         options.CharSet(CharSet.Utf8Mb4); // We can not (yet) use a collation here
-                        options.CharSetBehavior(CharSetBehavior.NeverAppend); // Use the DB default instead
+                        //options.CharSetBehavior(CharSetBehavior.NeverAppend); // Use the DB default instead
                     });
             });
 
