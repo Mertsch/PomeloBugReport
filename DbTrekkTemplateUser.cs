@@ -4,7 +4,7 @@ namespace PomeloPrimaryKeyBug
 {
     public sealed class DbTrekkTemplateUser
     {
-        //public int Id { get; [UsedImplicitly] private set; }
+        //public int Id { get; [UsedImplicitly] private set; } // 1. InititalMigration
 
         public int TrekkTemplateId { get; [UsedImplicitly] private set; }
         [CanBeNull]

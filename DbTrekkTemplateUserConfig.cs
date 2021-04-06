@@ -9,8 +9,8 @@ namespace PomeloPrimaryKeyBug
         public void Configure([NotNull] EntityTypeBuilder<DbTrekkTemplateUser> b)
         {
             b.ToTable("tasks_workers");
-            //b.HasKey(p => p.Id);
-            b.HasKey(p => new { p.TrekkTemplateId, p.WorkerId });
+            //b.HasKey(p => p.Id); // 1. InititalMigration
+            b.HasKey(p => new { p.TrekkTemplateId, p.WorkerId }); // 2. ChangeDbTrekkTemplateUserKey
 
             b.Property(p => p.TrekkTemplateId).IsRequired().HasColumnName("TrekkTemplateId");
             b.HasOne(p => p.TrekkTemplate).WithMany().HasForeignKey(p => p.TrekkTemplateId)

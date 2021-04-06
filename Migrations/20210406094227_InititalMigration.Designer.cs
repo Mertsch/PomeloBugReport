@@ -8,8 +8,8 @@ using PomeloPrimaryKeyBug;
 namespace PomeloPrimaryKeyBug.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20210315180105_ChangeDbTrekkTemplateUserKey")]
-    partial class ChangeDbTrekkTemplateUserKey
+    [Migration("20210406094227_InititalMigration")]
+    partial class InititalMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,10 @@ namespace PomeloPrimaryKeyBug.Migrations
 
             modelBuilder.Entity("PomeloPrimaryKeyBug.DbTrekkTemplateUser", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
                     b.Property<int>("TrekkTemplateId")
                         .HasColumnType("int")
                         .HasColumnName("TrekkTemplateId");
@@ -40,7 +44,9 @@ namespace PomeloPrimaryKeyBug.Migrations
                         .HasColumnType("int")
                         .HasColumnName("WorkerId");
 
-                    b.HasKey("TrekkTemplateId", "WorkerId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrekkTemplateId");
 
                     b.HasIndex("WorkerId");
 
